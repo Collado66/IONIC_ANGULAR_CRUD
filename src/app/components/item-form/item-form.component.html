@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>{{ isEditMode ? 'Editar Item' : 'Novo Item' }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">Cancelar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item fill="solid" class="ion-margin-bottom">
+    <ion-input 
+      label="Título" 
+      labelPlacement="floating" 
+      [(ngModel)]="title" 
+      type="text">
+    </ion-input>
+  </ion-item>
+
+  <ion-item fill="solid" class="ion-margin-bottom">
+    <ion-textarea 
+      label="Descrição" 
+      labelPlacement="floating" 
+      [(ngModel)]="description" 
+      rows="4">
+    </ion-textarea>
+  </ion-item>
+
+  <ion-button expand="block" (click)="save()" [disabled]="!title.trim()">
+    {{ isEditMode ? 'Salvar Alterações' : 'Adicionar' }}
+  </ion-button>
+</ion-content>
